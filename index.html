@@ -3,18 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Atividades – Estilo Kumon</title>
 
+    <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Fonte Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Gerador de Atividades de Multiplicação e Divisão – Estilo Kumon</h1>
+    <div class="container">
 
-    <button onclick="gerarPDF()">Gerar PDF</button>
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <h1>Gerador de Atividades</h1>
+        <p>Multiplicação e Divisão • Estilo Kumon</p>
+
+        <button onclick="gerarPDF()">📄 Gerar PDF</button>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
