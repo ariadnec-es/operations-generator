@@ -13,7 +13,7 @@ function gerarPDF() {
         return;
     }
 
-    // ================= GERADOR DE NÚMEROS (DÍGITOS) =================
+    // ================= NÚMEROS (DÍGITOS) =================
     function gerarNumero() {
         let digitos;
 
@@ -28,62 +28,72 @@ function gerarPDF() {
 
         const min = digitos === 1 ? 1 : Math.pow(10, digitos - 1);
         const max = Math.pow(10, digitos) - 1;
-
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // ================= GERAR QUESTÃO =================
-    function gerarQuestao() {
-        const tipo = tiposSelecionados[
-            Math.floor(Math.random() * tiposSelecionados.length)
-        ];
-
+    // ================= QUESTÃO POR TIPO =================
+    function gerarQuestao(tipo) {
         let a, b;
 
-        switch (tipo) {
-            case "soma":
-                a = gerarNumero();
-                b = gerarNumero();
-                return `${a} + ${b} = __________`;
+        if (tipo === "soma") {
+            a = gerarNumero();
+            b = gerarNumero();
+            return `${a} + ${b} = __________`;
+        }
 
-            case "sub":
-                a = gerarNumero();
-                b = gerarNumero();
-                return `${Math.max(a, b)} − ${Math.min(a, b)} = __________`;
+        if (tipo === "sub") {
+            a = gerarNumero();
+            b = gerarNumero();
+            return `${Math.max(a, b)} - ${Math.min(a, b)} = __________`;
+        }
 
-            case "mult":
-                a = gerarNumero();
-                b = gerarNumero();
-                return `${a} × ${b} = __________`;
+        if (tipo === "mult") {
+            a = gerarNumero();
+            b = gerarNumero();
+            return `${a} x ${b} = __________`;
+        }
 
-            case "div":
-                a = gerarNumero();
-                b = gerarNumero();
-                return `${a * b} ÷ ${a} = __________`;
+        if (tipo === "div") {
+            a = gerarNumero();
+            b = gerarNumero();
+            return `${a * b} / ${a} = __________`;
         }
     }
 
+    // ================= TÍTULOS =================
+    const titulos = {
+        soma: "ADIÇÃO",
+        sub: "SUBTRAÇÃO",
+        mult: "MULTIPLICAÇÃO",
+        div: "DIVISÃO"
+    };
+
     // ================= CRIAR PÁGINA =================
-    function criarPagina(numPagina) {
-        doc.setFontSize(16);
-        doc.text(`Página ${numPagina}`, 105, 20, { align: "center" });
+    function criarPagina(tipo, numPagina) {
+        doc.setFontSize(18);
+        doc.text(titulos[tipo], 105, 20, { align: "center" });
 
-        doc.setFontSize(13);
-        let y = 40;
+        doc.setFontSize(12);
+        doc.text(`Página ${numPagina}`, 105, 28, { align: "center" });
 
-        for (let i = 0; i < 20; i++) {
-            let x = i % 2 === 0 ? 25 : 110;
-            doc.text(gerarQuestao(), x, y);
+        let y = 45;
 
-            if (i % 2 !== 0) y += 12;
+        for (let i = 1; i <= 20; i++) {
+            doc.text(`${i}) ${gerarQuestao(tipo)}`, 30, y);
+            y += 12;
         }
     }
 
     // ================= GERAR PDF =================
-    for (let p = 1; p <= paginas; p++) {
-        if (p > 1) doc.addPage();
-        criarPagina(p);
-    }
+    let paginaAtual = 1;
 
-    doc.save("atividade_estilo_kumon.pdf");
+    tiposSelecionados.forEach(tipo => {
+        for (let p = 1; p <= paginas; p++) {
+            if (paginaAtual > 1) doc.addPage();
+            criarPagina(tipo, p);
+            paginaAtual++;
+        }
+    });
+
+    doc.save("atividades_matematica_estilo_kumon.pdf");
 }
