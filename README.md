@@ -1,6 +1,6 @@
 #  Gerador de Operações Matemáticas – Estilo Kumon
 
-Este projeto é um **gerador automático de operações de matemática** inspirado na metodologia **Kumon**, permitindo criar **folhas de exercícios em PDF** no formato **A4 paisagem**, organizadas como **duas páginas A5 por folha**.
+Este projeto é um gerador automático de operações de matemática inspirado na metodologia **Kumon**, permitindo criar folhas de exercícios em PDF no formato A4 paisagem, organizadas como duas páginas A5 por folha.
 
 Ideal para:
 - Professores
@@ -11,10 +11,10 @@ Ideal para:
 
 ## Funcionalidades
 
-- Geração de **PDF em A4 (paisagem)**
-- Organização em **duas colunas (1–10 / 11–20)**
-- ➕➖✖➗ Escolha do **tipo de operação**
-- **Níveis de dificuldade baseados no Kumon**
+- Geração de PDF em A4 (paisagem)
+- Organização em duas colunas (1–10 / 11–20)
+- ➕➖✖➗ Escolha do tipo de operação
+- Níveis de dificuldade baseados no Kumon
 
 ---
 
@@ -32,7 +32,7 @@ Cada folha contém:
 - **20 questões por página**
   - 10 na metade esquerda
   - 10 na metade direita
-- Formato ideal para dobrar a folha e formar um **“livro A5”**
+- Formato ideal para dobrar a folha e formar um “livro A5”
 
 ---
 
@@ -53,10 +53,10 @@ Os níveis seguem a progressão pedagógica do **Kumon**, aumentando gradualment
 
 ### 📌 Observações pedagógicas
 
-- A **progressão é gradual**, focando em **fluidez e precisão**, não velocidade inicial.
-- A divisão é sempre **exata**, evitando restos, conforme a metodologia Kumon.
-- O professor pode **selecionar manualmente o tipo de operação**, mantendo a dificuldade adequada ao nível.
-- O foco é desenvolver **autonomia e confiança** da criança.
+- A progressão é gradual, focando em fluidez e precisão, não velocidade inicial.
+- A divisão é sempre exata, evitando restos, conforme a metodologia Kumon.
+- O professor pode selecionar manualmente o tipo de operação, mantendo a dificuldade adequada ao nível.
+- O foco é desenvolver autonomia e confiança da criança.
 
 ## Acesse o Gerador Online
 **Clique no botão abaixo para acessar o gerador de atividades:**
